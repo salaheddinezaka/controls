@@ -4,6 +4,8 @@
   "description": "Lincx Controls that add more functionnality to the zones",
   "main": "index.js",
   "scripts": {
+    "build": "webpack  --mode production",
+    "develop": "webpack -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "zaka salah eddine",

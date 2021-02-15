@@ -1,5 +1,4 @@
 module.exports = {
-  mode: 'developement',
   entry: {
     creditScore: ['./src/credit-score-modal/index.js']
   },
