@@ -2,7 +2,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
-    creditScore: ['./src/credit-score-modal/index.js']
+    creditScore: ['./src/credit-score-modal/index.js'],
+    studentLoan: ['./src/student-loan/index.js'],
   },
   output: {
     filename: '[name].js',
