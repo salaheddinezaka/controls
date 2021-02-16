@@ -1,6 +1,6 @@
 import { waitFor } from '../helpers'
 import $ from 'jquery'
-import './credit-score-styles.css'
+import './style.css'
 
 let creditScore = ''
 const zoneAttributes = {}
