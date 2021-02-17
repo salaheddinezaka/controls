@@ -21,6 +21,7 @@
     "@babel/core": "^7.12.16",
     "@babel/preset-env": "^7.12.16",
     "@trevoreyre/autocomplete-js": "^2.2.0",
+    "animejs": "^3.2.1",
     "babel-loader": "^8.2.2",
     "jquery": "^3.5.1"
   }
