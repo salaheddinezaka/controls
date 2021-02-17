@@ -24,7 +24,7 @@ function createLoanPurposeDropDown() {
   const dropdown = document.createElement('div')
   dropdown.innerHTML = `
           <span>Loan Purpose</span>
-          <select id="purpose" onchange="handleChangeLoanPurpose(this)">
+          <select id="purpose" onchange="mortgage.handleChangeLoanPurpose(this)">
             <option value="none">Select your option</option>
             <option value="268ab7">Purchase</option>
             <option value="l1ai94">Refinance</option>
@@ -39,7 +39,7 @@ function createCredirScoreDropDown() {
   const dropdown = document.createElement('div')
   dropdown.innerHTML = `
           <span>Credit Score</span>
-          <select id="credit-score" onchange="handleChangeCredirScore(this)">
+          <select id="credit-score" onchange="mortgage.handleChangeCredirScore(this)">
             <option value="none">Select your option</option>
             <option value="excellent">Excellent (720-850)</option>
             <option value="good">Good (690-719)</option>
@@ -55,7 +55,7 @@ function createLoanAmountDropDown() {
   const dropdown = document.createElement('div')
   dropdown.innerHTML = `
           <span>Loan Amount</span>
-          <select id="credit-score" onchange="handleChangeLoanAmount(this)">
+          <select id="credit-score" onchange="mortgage.handleChangeLoanAmount(this)">
             <option value="none">Select your option</option>
             <option value="100">Up to $100K</option>
             <option value="100-250">$100K-$250K</option>
@@ -71,7 +71,7 @@ function createWhenDropDown() {
   const dropdown = document.createElement('div')
   dropdown.innerHTML = `
           <span>Closing soon?</span>
-          <select id="credit-score" onchange="handleChangeClosingSoon(this)">
+          <select id="credit-score" onchange="mortgage.handleChangeClosingSoon(this)">
             <option value="none">Select your option</option>
             <option value="as-soon-as-possible">As soon as possible</option>
             <option value="few-months">Within a few months</option>
@@ -125,7 +125,7 @@ function insertStep1Modal() {
   step1ModalContainer.innerHTML = `
           <div class="scores__modal--background"></div>
           <div class="scores__modal" style="display: block; top: 50px; opacity: 1;">
-            <svg viewBox="0 0 48 48" onclick="closeStep1Modal()">
+            <svg viewBox="0 0 48 48" onclick="mortgage.closeStep1Modal()">
               <g fill-rule="evenodd">
                 <path
                   d="M24 48c13.255 0 24-10.745 24-24S37.255 0 24 0 0 10.745 0 24s10.745 24 24 24zm0-3c11.598 0 21-9.402 21-21S35.598 3 24 3 3 12.402 3 24s9.402 21 21 21z"
@@ -150,17 +150,17 @@ function insertStep1Modal() {
               <div class="modal__buttons">
                 <button
                   class="modal__button"
-                  onclick="moveToNextModal()"
+                  onclick="mortgage.moveToNextModal()"
                 >
                 Purchase</button
                 ><button
                   class="modal__button"
-                  onclick="handleClick('data-credit-score', 'fair')"
+                  onclick="mortgage.handleClick('data-credit-score', 'fair')"
                 >
                 Refinance</button
                 ><button
                   class="modal__button"
-                  onclick="handleClick('data-credit-score', 'good')"
+                  onclick="mortgage.handleClick('data-credit-score', 'good')"
                 >
                 Home Equity</button
                 >
@@ -178,7 +178,7 @@ function insertStep2Modal() {
   step2ModalContainer.innerHTML = `
           <div class="scores__modal--background"></div>
           <div class="scores__modal2" style="display: block; top: 50px; opacity: 1;">
-            <svg viewBox="0 0 48 48" onclick="closeStep2Modal()">
+            <svg viewBox="0 0 48 48" onclick="mortgage.closeStep2Modal()">
               <g fill-rule="evenodd">
                 <path
                   d="M24 48c13.255 0 24-10.745 24-24S37.255 0 24 0 0 10.745 0 24s10.745 24 24 24zm0-3c11.598 0 21-9.402 21-21S35.598 3 24 3 3 12.402 3 24s9.402 21 21 21z"
@@ -203,17 +203,17 @@ function insertStep2Modal() {
               <div class="modal__buttons">
                 <button
                   class="modal__button"
-                  onclick="handleClick('data-credit-score', 'excellent')"
+                  onclick="mortgage.handleClick('data-credit-score', 'excellent')"
                 >
                 As soon as possible</button
                 ><button
                   class="modal__button"
-                  onclick="handleClick('data-credit-score', 'fair')"
+                  onclick="mortgage.handleClick('data-credit-score', 'fair')"
                 >
                 Within a few months</button
                 ><button
                   class="modal__button"
-                  onclick="handleClick('data-credit-score', 'good')"
+                  onclick="mortgage.handleClick('data-credit-score', 'good')"
                 >
                 Just looking around</button
                 >
