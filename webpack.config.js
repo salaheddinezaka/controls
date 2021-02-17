@@ -2,7 +2,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
-    creditScore: ['./src/credit-score-modal/index.js'],
+    creditScore: ['./src/credit-score/index.js'],
     studentLoan: ['./src/student-loan/index.js'],
     mortgage: ['./src/mortgage/index.js'],
   },

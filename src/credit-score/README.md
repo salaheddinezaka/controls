@@ -14,3 +14,5 @@ This control contain a Modal and DropDown, helps users to engage by letting them
 ````html
 <link href="https://zaka-controls.netlify.app/creditScore.css" rel="stylesheet" />
 ````
+
+3. add this class name ``_lincxReRenderSection_``  in the container of you ads feed
