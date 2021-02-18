@@ -2,6 +2,7 @@ import $ from 'jquery'
 import { colleges } from './schools'
 import Autocomplete from '@trevoreyre/autocomplete-js'
 import "./style.css"
+import { waitFor } from '../helpers'
 
 const zoneAttributes = {}
 
@@ -146,15 +147,6 @@ function makeSearchFixedOnScroll() {
       })
     }
   })
-}
-
-function waitFor(element, callback) {
-  const checkExist = setInterval(function () {
-    if (document.querySelector(element)) {
-      callback()
-      clearInterval(checkExist)
-    }
-  }, 100)
 }
 
 $(document).ready(function () {
