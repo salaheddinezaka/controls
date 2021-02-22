@@ -4,11 +4,31 @@ import { waitFor } from '../helpers'
 
 import './style.css'
 
-const zoneAttributes = {}
+// let zoneAttributes = {}
+
+// let purchaseTemplateId = document.currentScript.attributes('purchase-template')
+// let equityTemplateId = document.currentScript.attributes('equity-template')
+// let refiTemplateId = document.currentScript.attributes('refi-template')
+
+var zoneAttributes
+var purchaseTemplateId = '268ab7'
+var equityTemplateId = 'hq7xwz'
+var refiTemplateId = 'l1ai94'
+if (typeof zoneAttributes === 'undefined') zoneAttributes = {}
+
+function waitFor(element, callback) {
+  const checkExist = setInterval(function () {
+    if (document.querySelector(element)) {
+      callback()
+      clearInterval(checkExist)
+    }
+  }, 100)
+}
 
 function updateZoneAttribute(attribute, value) {
   zoneAttributes[attribute] = value
   zoneAttributes['data-ad-feed-count'] = '10'
+  console.log({ zoneAttributes })
   window.renderAdFeed(zoneAttributes)
 }
 
@@ -24,11 +44,11 @@ function createLoanPurposeDropDown() {
   const dropdown = document.createElement('div')
   dropdown.innerHTML = `
           <span>Loan Purpose</span>
-          <select id="purpose" onchange="mortgage.handleChangeLoanPurpose(this)">
+          <select id="purpose" onchange="handleChangeLoanPurpose(this)">
             <option value="none">Select your option</option>
-            <option value="268ab7">Purchase</option>
-            <option value="l1ai94">Refinance</option>
-            <option value="hq7xwz">Home Equity</option>
+            <option value="${purchaseTemplateId}">Purchase</option>
+            <option value="${refiTemplateId}">Refinance</option>
+            <option value="${equityTemplateId}">Home Equity</option>
           </select>
         `
   dropdownsContainer.appendChild(dropdown)
@@ -39,7 +59,7 @@ function createCredirScoreDropDown() {
   const dropdown = document.createElement('div')
   dropdown.innerHTML = `
           <span>Credit Score</span>
-          <select id="credit-score" onchange="mortgage.handleChangeCredirScore(this)">
+          <select id="credit-score" onchange="handleChangeCredirScore(this)">
             <option value="none">Select your option</option>
             <option value="excellent">Excellent (720-850)</option>
             <option value="good">Good (690-719)</option>
@@ -55,7 +75,7 @@ function createLoanAmountDropDown() {
   const dropdown = document.createElement('div')
   dropdown.innerHTML = `
           <span>Loan Amount</span>
-          <select id="credit-score" onchange="mortgage.handleChangeLoanAmount(this)">
+          <select id="credit-score" onchange="handleChangeLoanAmount(this)">
             <option value="none">Select your option</option>
             <option value="100">Up to $100K</option>
             <option value="100-250">$100K-$250K</option>
@@ -71,7 +91,7 @@ function createWhenDropDown() {
   const dropdown = document.createElement('div')
   dropdown.innerHTML = `
           <span>Closing soon?</span>
-          <select id="credit-score" onchange="mortgage.handleChangeClosingSoon(this)">
+          <select id="credit-score" onchange="handleChangeClosingSoon(this)">
             <option value="none">Select your option</option>
             <option value="as-soon-as-possible">As soon as possible</option>
             <option value="few-months">Within a few months</option>
@@ -81,23 +101,23 @@ function createWhenDropDown() {
   dropdownsContainer.appendChild(dropdown)
 }
 
-export function handleChangeLoanPurpose(e) {
+function handleChangeLoanPurpose(e) {
   updateZoneAttribute('data-template-id', e.value)
 }
 
-export function handleChangeCredirScore(e) {
+function handleChangeCredirScore(e) {
   updateZoneAttribute('data-credit-score', e.value)
 }
 
-export function handleChangeLoanAmount(e) {
+function handleChangeLoanAmount(e) {
   updateZoneAttribute('data-loan-amount', e.value)
 }
 
-export function handleChangeClosingSoon(e) {
+function handleChangeClosingSoon(e) {
   updateZoneAttribute('data-when', e.value)
 }
 
-export function hideModal(element) {
+function hideModal(element) {
   $(element).first().hide()
 }
 function showModal(element) {
@@ -111,11 +131,11 @@ function animateModal(target) {
   })
 }
 
-export function closeStep1Modal() {
+function closeStep1Modal() {
   hideModal('#modal__step1')
 }
 
-export function closeStep2Modal() {
+function closeStep2Modal() {
   hideModal('#modal__step2')
 }
 
@@ -125,7 +145,7 @@ function insertStep1Modal() {
   step1ModalContainer.innerHTML = `
           <div class="scores__modal--background"></div>
           <div class="scores__modal" style="display: block; top: 50px; opacity: 1;">
-            <svg viewBox="0 0 48 48" onclick="mortgage.closeStep1Modal()">
+            <svg viewBox="0 0 48 48" onclick="closeStep1Modal()">
               <g fill-rule="evenodd">
                 <path
                   d="M24 48c13.255 0 24-10.745 24-24S37.255 0 24 0 0 10.745 0 24s10.745 24 24 24zm0-3c11.598 0 21-9.402 21-21S35.598 3 24 3 3 12.402 3 24s9.402 21 21 21z"
@@ -150,17 +170,17 @@ function insertStep1Modal() {
               <div class="modal__buttons">
                 <button
                   class="modal__button"
-                  onclick="mortgage.moveToNextModal()"
+                  onclick="moveToNextModal()"
                 >
                 Purchase</button
                 ><button
                   class="modal__button"
-                  onclick="mortgage.handleClick('data-credit-score', 'fair')"
+                  onclick="handleModalCLick('data-template-id', '${refiTemplateId}')"
                 >
                 Refinance</button
                 ><button
                   class="modal__button"
-                  onclick="mortgage.handleClick('data-credit-score', 'good')"
+                  onclick="handleModalCLick('data-template-id', '${equityTemplateId}')"
                 >
                 Home Equity</button
                 >
@@ -178,7 +198,7 @@ function insertStep2Modal() {
   step2ModalContainer.innerHTML = `
           <div class="scores__modal--background"></div>
           <div class="scores__modal2" style="display: block; top: 50px; opacity: 1;">
-            <svg viewBox="0 0 48 48" onclick="mortgage.closeStep2Modal()">
+            <svg viewBox="0 0 48 48" onclick="closeStep2Modal()">
               <g fill-rule="evenodd">
                 <path
                   d="M24 48c13.255 0 24-10.745 24-24S37.255 0 24 0 0 10.745 0 24s10.745 24 24 24zm0-3c11.598 0 21-9.402 21-21S35.598 3 24 3 3 12.402 3 24s9.402 21 21 21z"
@@ -203,17 +223,17 @@ function insertStep2Modal() {
               <div class="modal__buttons">
                 <button
                   class="modal__button"
-                  onclick="mortgage.handleClick('data-credit-score', 'excellent')"
+                  onclick="handleSecondModalClick('as-soon-as-possible')"
                 >
                 As soon as possible</button
                 ><button
                   class="modal__button"
-                  onclick="mortgage.handleClick('data-credit-score', 'fair')"
+                  onclick="handleSecondModalClick('few-months')"
                 >
                 Within a few months</button
                 ><button
                   class="modal__button"
-                  onclick="mortgage.handleClick('data-credit-score', 'good')"
+                  onclick="handleSecondModalClick('looking-around')"
                 >
                 Just looking around</button
                 >
@@ -224,14 +244,23 @@ function insertStep2Modal() {
   document.body.appendChild(step2ModalContainer)
 }
 
-export function moveToNextModal() {
+function moveToNextModal() {
   hideModal('#modal__step1')
   showModal('#modal__step2')
   animateModal('.scores__modal2')
 }
 
-export function handleModalCLick(attribute, value) {
+function handleModalCLick(attribute, value) {
   updateZoneAttribute(attribute, value)
+}
+
+function handleSecondModalClick(value) {
+  zoneAttributes['data-template-id'] = purchaseTemplateId
+  zoneAttributes['data-when'] = value
+  zoneAttributes['data-ad-feed-count'] = '10'
+  console.log({ zoneAttributes })
+  window.renderAdFeed(zoneAttributes)
+  hideModal('#modal__step2')
 }
 
 $(document).ready(() => {
