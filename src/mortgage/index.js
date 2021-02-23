@@ -4,15 +4,17 @@ import { waitFor } from '../helpers'
 
 import './style.css'
 
+console.log({attr: document.currentScript.getAttribute('data-purchase-id')});
+
 if(window.zoneAttributes === undefined){
   window.zoneAttributes = {}
 }
 
 if(window.templatesIds === undefined){
   window.templatesIds = {
-    purchase: '268ab7',
-    equity: 'hq7xwz',
-    refi: 'l1ai94',
+    purchase: document.currentScript.getAttribute('data-purchase-id') || '268ab7',
+    equity: document.currentScript.getAttribute('data-equity-id') || 'hq7xwz',
+    refi: document.currentScript.getAttribute('data-refi-id') || 'l1ai94',
   }
 }
 
@@ -177,6 +179,13 @@ function insertStep1Modal() {
                 Home Equity</button
                 >
               </div>
+              <div class="modal__steps">
+                <ul>
+                  <li class="completed"></li>
+                  <li class="incompleted"></li>
+                </ul>
+                <span>1/2 Steps</span>
+              </div>
             </div>
           </div>
         `
@@ -200,6 +209,7 @@ function insertStep2Modal() {
                 ></path>
               </g>
             </svg>
+            <svg class="back" onclick="mortgage.moveBack()" xmlns="http://www.w3.org/2000/svg" xmlns:v="https://vecta.io/nano" viewBox="0 0 31.494 31.494"><path d="M10.273 5.009a1.11 1.11 0 0 1 1.587 0 1.12 1.12 0 0 1 0 1.571l-8.047 8.047h26.554c.619 0 1.127.492 1.127 1.111a1.13 1.13 0 0 1-1.127 1.127H3.813l8.047 8.032a1.14 1.14 0 0 1 0 1.587 1.11 1.11 0 0 1-1.587 0L.321 16.532a1.12 1.12 0 0 1 0-1.571l9.952-9.952z" fill="currentColor"/></svg>
             <div class="modal__info">
               <div class="modal__header">
                 <div class="modal__title">
@@ -230,6 +240,13 @@ function insertStep2Modal() {
                 Just looking around</button
                 >
               </div>
+              <div class="modal__steps">
+                <ul>
+                  <li class="completed"></li>
+                  <li class="completed"></li>
+                </ul>
+                <span>1/2 Steps</span>
+              </div>
             </div>
           </div>
         `
@@ -240,6 +257,12 @@ export function moveToNextModal() {
   hideModal('#modal__step1')
   showModal('#modal__step2')
   animateModal('.scores__modal2')
+}
+
+export function moveBack(){
+  hideModal('#modal__step2')
+  showModal('#modal__step1')
+  animateModal('.scores__modal1')
 }
 
 export function handleModalCLick(attribute, value) {

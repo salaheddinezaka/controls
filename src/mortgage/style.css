@@ -84,6 +84,10 @@
   top: 10px;
 }
 
+.scores__modal2 .back {
+  left: 40px;
+}
+
 .modal__info {
   margin: 0 auto;
 }
@@ -144,29 +148,61 @@
   color: #ffffff;
 }
 
+.modal__steps{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.modal__steps ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin: 10px auto;
+  text-align: center;
+  padding: 0;
+}
+.modal__steps ul li {
+  height: 4px;
+  width: 80px;
+  border-radius: 3.5px;
+}
+.modal__steps ul .completed {
+  background-color: #1d7a70;
+}
+.modal__steps ul .incompleted {
+  background-color: #141c1f;
+  opacity: 0.1;
+}
+
 @media (min-width: 769px) {
   .control__container {
     display: flex;
     flex-direction: column-reverse;
   }
+
   #control__dropdowns {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
   }
+
   #control__dropdowns h3 {
     width: 100%;
     font-size: 24px;
     line-height: 1;
     margin-bottom: 16px;
   }
+
   #control__dropdowns div {
     display: flex;
     flex-direction: column;
     flex: 1;
     margin-right: 5px;
   }
+
   .scores__modal,
   .scores__modal2 {
     width: 810px;
@@ -177,6 +213,10 @@
   .scores__modal2 svg {
     right: 40px;
     top: 40px;
+  }
+
+  .scores__modal2 .back {
+    left: 40px;
   }
 
   .modal__header {
@@ -203,4 +243,3 @@
     display: block;
   }
 }
-
