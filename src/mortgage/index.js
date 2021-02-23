@@ -131,10 +131,12 @@ function animateModal(target) {
 
 export function closeStep1Modal() {
   hideModal('#modal__step1')
+  window.DisplayModal = false
 }
 
 export function closeStep2Modal() {
   hideModal('#modal__step2')
+  window.DisplayModal = false
 }
 
 function insertStep1Modal() {
