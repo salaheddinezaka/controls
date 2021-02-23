@@ -10,6 +10,10 @@ if(window.zoneAttributes === undefined){
   window.zoneAttributes = {}
 }
 
+if(window.selectedTemplate === undefined){
+  window.selectedTemplate = document.currentScript.getAttribute('data-current-page') || 'purchase'
+}
+
 if(window.templatesIds === undefined){
   window.templatesIds = {
     purchase: document.currentScript.getAttribute('data-purchase-id') || '268ab7',
@@ -310,7 +314,9 @@ $(document).ready(() => {
     createLoanPurposeDropDown()
     createCredirScoreDropDown()
     createLoanAmountDropDown()
-    createWhenDropDown()
+    if(window.selectedTemplate === "purchase"){
+      createWhenDropDown()
+    }
     loadCurrentZoneAttribute();
     if (canShowModal()) {
       showModal('#modal__step1')
