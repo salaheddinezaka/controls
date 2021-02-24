@@ -396,6 +396,12 @@ function loadCurrentZoneAttribute() {
     $(`#loan-amount`).val(window.zoneAttributes['data-loan-amount'])
 }
 
+function hideAllModals(){
+  $("#modal__step1").css('display', 'none');
+  $("#modal__step2").css('display', 'none');
+  $("#creditScoreModal").css('display', 'none');
+}
+
 $(document).ready(() => {
   insertStep1Modal()
   insertStep2Modal()
@@ -416,9 +422,7 @@ $(document).ready(() => {
       showModal('#modal__step1')
       animateModal('.scores__modal')
     }else{
-      hideModal('#modal__step1')
-      hideModal('#modal__step2')
-      hideModal('#creditScoreModal')
+      hideAllModals()
     }
   })
 })
