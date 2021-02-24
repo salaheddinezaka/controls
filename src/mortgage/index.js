@@ -415,6 +415,10 @@ $(document).ready(() => {
     if (canShowModal()) {
       showModal('#modal__step1')
       animateModal('.scores__modal')
+    }else{
+      hideModal('#modal__step1')
+      hideModal('#modal__step2')
+      hideModal('#creditScoreModal')
     }
   })
 })
