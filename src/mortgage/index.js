@@ -352,6 +352,11 @@ export function handleModalCLick(attribute, value) {
   window.DisplayModal = false
 }
 
+export function TabsClick(purpose){
+  updateZoneAttribute("data-template-id", purpose)
+  return false;
+}
+
 export function handleSecondModalClick(value) {
   window.zoneAttributes['data-template-id'] = window.templatesIds.purchase
   window.zoneAttributes['data-when'] = value
