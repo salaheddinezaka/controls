@@ -57,7 +57,8 @@
 }
 
 .scores__modal,
-.scores__modal2 {
+.scores__modal2,
+.scores__modal--3 {
   position: absolute;
   max-height: calc(100vh - 60px);
   width: 288px;
@@ -74,7 +75,8 @@
 }
 
 .scores__modal svg,
-.scores__modal2 svg {
+.scores__modal2 svg,
+.scores__modal--3 svg {
   height: 20px;
   width: 20px;
   cursor: pointer;
@@ -84,7 +86,8 @@
   top: 10px;
 }
 
-.scores__modal2 .back {
+.scores__modal2 .back,
+.scores__modal--3 .back {
   left: 40px;
 }
 
@@ -204,18 +207,21 @@
   }
 
   .scores__modal,
-  .scores__modal2 {
+  .scores__modal2,
+  .scores__modal--3 {
     width: 810px;
     padding: 80px 95px 50px;
   }
 
   .scores__modal svg,
-  .scores__modal2 svg {
+  .scores__modal2 svg,
+  .scores__modal--3 svg {
     right: 40px;
     top: 40px;
   }
 
-  .scores__modal2 .back {
+  .scores__modal2 .back,
+  .scores__modal--3 .back {
     left: 40px;
   }
 
