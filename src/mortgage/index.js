@@ -4,8 +4,6 @@ import { waitFor } from '../helpers'
 
 import './style.css'
 
-console.log({ attr: document.currentScript.getAttribute('data-purchase-id') })
-
 if (window.zoneAttributes === undefined) {
   window.zoneAttributes = {}
 }
@@ -26,8 +24,6 @@ if (window.templatesIds === undefined) {
 
 function updateZoneAttribute(attribute, value) {
   window.zoneAttributes[attribute] = value
-  window.zoneAttributes['data-ad-feed-count'] = '10'
-  console.log({ attr: window.zoneAttributes })
   window.renderAdFeed(window.zoneAttributes)
 }
 
@@ -201,8 +197,9 @@ function insertStep1Modal() {
             </div>
           </div>
         `
-
-  document.body.appendChild(step1ModalContainer)
+  if ($('#modal__step1').length === 0) {
+    document.body.appendChild(step1ModalContainer)
+  }
 }
 
 function insertStep2Modal() {
@@ -262,7 +259,9 @@ function insertStep2Modal() {
             </div>
           </div>
         `
-  document.body.appendChild(step2ModalContainer)
+  if ($('#modal__step2').length === 0) {
+    document.body.appendChild(step2ModalContainer)
+  }
 }
 
 function insertCreditScoreModal() {
@@ -323,7 +322,9 @@ function insertCreditScoreModal() {
           </div>
         </div>
       </div>`
-  document.body.appendChild(modalDiv)
+  if ($('#creditScoreModal').length === 0) {
+    document.body.appendChild(modalDiv)
+  }
 }
 
 export function moveToNextModal() {
@@ -336,7 +337,7 @@ export function moveToCreditScoreModal(templateId) {
   hideModal('#modal__step1')
   showModal('#creditScoreModal')
   animateModal('.scores__modal--3')
-  window.zoneAttributes['data-template-id'] = templateId;
+  window.zoneAttributes['data-template-id'] = templateId
 }
 
 export function moveBack(fromWhen = true) {
@@ -352,9 +353,9 @@ export function handleModalCLick(attribute, value) {
   window.DisplayModal = false
 }
 
-export function TabsClick(purpose){
-  updateZoneAttribute("data-template-id", purpose)
-  return false;
+export function TabsClick(purpose) {
+  updateZoneAttribute('data-template-id', purpose)
+  return false
 }
 
 export function handleSecondModalClick(value) {
@@ -367,7 +368,7 @@ export function handleSecondModalClick(value) {
   window.DisplayModal = false
 }
 
-export function handleCreditScoreModalClick(value){
+export function handleCreditScoreModalClick(value) {
   window.zoneAttributes['data-credit-score'] = value
   window.renderAdFeed(window.zoneAttributes)
   $(`#purpose`).val(window.zoneAttributes['data-template-id'])
@@ -396,10 +397,10 @@ function loadCurrentZoneAttribute() {
     $(`#loan-amount`).val(window.zoneAttributes['data-loan-amount'])
 }
 
-function hideAllModals(){
-  $("#modal__step1").css('display', 'none');
-  $("#modal__step2").css('display', 'none');
-  $("#creditScoreModal").css('display', 'none');
+function hideAllModals() {
+  $('#modal__step1').css('display', 'none')
+  $('#modal__step2').css('display', 'none')
+  $('#creditScoreModal').css('display', 'none')
 }
 
 $(document).ready(() => {
@@ -421,7 +422,7 @@ $(document).ready(() => {
     if (canShowModal()) {
       showModal('#modal__step1')
       animateModal('.scores__modal')
-    }else{
+    } else {
       hideAllModals()
     }
   })
