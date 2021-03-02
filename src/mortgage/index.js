@@ -30,8 +30,11 @@ function updateZoneAttribute(attribute, value) {
 function addControlTitle() {
   const dropdownsContainer = document.getElementById('control__dropdowns')
   const title = document.createElement('h3')
+  title.id = "dropdownTitle"
   title.innerHTML = `Which mortgage lender is right for you?`
-  dropdownsContainer.appendChild(title)
+
+  if ($('#dropdownTitle').length === 0) dropdownsContainer.appendChild(title)
+  
 }
 
 function createLoanPurposeDropDown() {
@@ -46,7 +49,7 @@ function createLoanPurposeDropDown() {
             <option value="${window.templatesIds.equity}">Home Equity</option>
           </select>
         `
-  dropdownsContainer.appendChild(dropdown)
+  if ($('#purpose').length === 0) dropdownsContainer.appendChild(dropdown)
 }
 
 function createCredirScoreDropDown() {
@@ -62,7 +65,7 @@ function createCredirScoreDropDown() {
             <option value="poor">Poor (350-629) </option>
           </select>
         `
-  dropdownsContainer.appendChild(dropdown)
+  if ($('#credit-score').length === 0) dropdownsContainer.appendChild(dropdown)
 }
 
 function createLoanAmountDropDown() {
@@ -78,7 +81,7 @@ function createLoanAmountDropDown() {
             <option value="400">$400K and up</option>
           </select>
         `
-  dropdownsContainer.appendChild(dropdown)
+  if ($('#loan-amount').length === 0) dropdownsContainer.appendChild(dropdown)
 }
 
 function createWhenDropDown() {
@@ -93,7 +96,7 @@ function createWhenDropDown() {
             <option value="looking-around">Just looking around</option>
           </select>
         `
-  dropdownsContainer.appendChild(dropdown)
+  if ($('#when').length === 0) dropdownsContainer.appendChild(dropdown)
 }
 
 export function handleChangeLoanPurpose(e) {
@@ -403,13 +406,15 @@ function hideAllModals() {
   $('#creditScoreModal').css('display', 'none')
 }
 
+
+insertStep1Modal()
+insertStep2Modal()
+insertCreditScoreModal()
+hideModal('#modal__step1')
+hideModal('#modal__step2')
+hideModal('#creditScoreModal')
+
 $(document).ready(() => {
-  insertStep1Modal()
-  insertStep2Modal()
-  insertCreditScoreModal()
-  hideModal('#modal__step1')
-  hideModal('#modal__step2')
-  hideModal('#creditScoreModal')
   waitFor('#control__dropdowns', () => {
     addControlTitle()
     createLoanPurposeDropDown()
