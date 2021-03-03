@@ -43,12 +43,14 @@ function createLoanPurposeDropDown() {
   dropdown.className = "control__dropdown"
   dropdown.innerHTML = `
           <span>Loan Purpose</span>
-          <select id="purpose" onchange="mortgage.handleChangeLoanPurpose(this)">
-            <option value="none">Select your option</option>
-            <option value="${window.templatesIds.purchase}">Purchase</option>
-            <option value="${window.templatesIds.refi}">Refinance</option>
-            <option value="${window.templatesIds.equity}">Home Equity</option>
-          </select>
+          <div class="mobileDD">
+            <select id="purpose" onchange="mortgage.handleChangeLoanPurpose(this)">
+              <option value="none">Select your option</option>
+              <option value="${window.templatesIds.purchase}">Purchase</option>
+              <option value="${window.templatesIds.refi}">Refinance</option>
+              <option value="${window.templatesIds.equity}">Home Equity</option>
+            </select>
+          </div>
         `
   if ($('#purpose').length === 0) dropdownsContainer.appendChild(dropdown)
 }
@@ -59,13 +61,15 @@ function createCredirScoreDropDown() {
   dropdown.className = "control__dropdown"
   dropdown.innerHTML = `
           <span>Credit Score</span>
-          <select id="credit-score" onchange="mortgage.handleChangeCredirScore(this)">
-            <option value="none">Select your option</option>
-            <option value="excellent">Excellent (720-850)</option>
-            <option value="good">Good (690-719)</option>
-            <option value="fair">Fair (630-689)</option>
-            <option value="poor">Poor (350-629) </option>
-          </select>
+          <div class="mobileDD">
+            <select id="credit-score" onchange="mortgage.handleChangeCredirScore(this)">
+              <option value="none">Select your option</option>
+              <option value="excellent">Excellent (720-850)</option>
+              <option value="good">Good (690-719)</option>
+              <option value="fair">Fair (630-689)</option>
+              <option value="poor">Poor (350-629) </option>
+            </select>
+          </div>
         `
   if ($('#credit-score').length === 0) dropdownsContainer.appendChild(dropdown)
 }
@@ -76,13 +80,15 @@ function createLoanAmountDropDown() {
   dropdown.className = "control__dropdown"
   dropdown.innerHTML = `
           <span>Loan Amount</span>
-          <select id="loan-amount" onchange="mortgage.handleChangeLoanAmount(this)">
-            <option value="none">Select your option</option>
-            <option value="100">Up to $100K</option>
-            <option value="100-250">$100K-$250K</option>
-            <option value="250-400">$250K-$400K</option>
-            <option value="400">$400K and up</option>
-          </select>
+          <div class="mobileDD">
+            <select id="loan-amount" onchange="mortgage.handleChangeLoanAmount(this)">
+              <option value="none">Select your option</option>
+              <option value="100">Up to $100K</option>
+              <option value="100-250">$100K-$250K</option>
+              <option value="250-400">$250K-$400K</option>
+              <option value="400">$400K and up</option>
+            </select>
+          </div>
         `
   if ($('#loan-amount').length === 0) dropdownsContainer.appendChild(dropdown)
 }
@@ -90,14 +96,17 @@ function createLoanAmountDropDown() {
 function createWhenDropDown() {
   const dropdownsContainer = document.getElementById('control__dropdowns')
   const dropdown = document.createElement('div')
+  dropdown.className = "control__dropdown"
   dropdown.innerHTML = `
           <span>Closing soon?</span>
-          <select id="when" onchange="mortgage.handleChangeClosingSoon(this)">
-            <option value="none">Select your option</option>
-            <option value="as-soon-as-possible">As soon as possible</option>
-            <option value="few-months">Within a few months</option>
-            <option value="looking-around">Just looking around</option>
-          </select>
+          <div class="mobileDD">
+            <select id="when" onchange="mortgage.handleChangeClosingSoon(this)">
+              <option value="none">Select your option</option>
+              <option value="as-soon-as-possible">As soon as possible</option>
+              <option value="few-months">Within a few months</option>
+              <option value="looking-around">Just looking around</option>
+            </select>
+          </div>
         `
   if ($('#when').length === 0) dropdownsContainer.appendChild(dropdown)
 }
