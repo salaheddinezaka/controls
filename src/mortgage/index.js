@@ -40,6 +40,7 @@ function addControlTitle() {
 function createLoanPurposeDropDown() {
   const dropdownsContainer = document.getElementById('control__dropdowns')
   const dropdown = document.createElement('div')
+  dropdown.className = "control__dropdown"
   dropdown.innerHTML = `
           <span>Loan Purpose</span>
           <select id="purpose" onchange="mortgage.handleChangeLoanPurpose(this)">
@@ -55,6 +56,7 @@ function createLoanPurposeDropDown() {
 function createCredirScoreDropDown() {
   const dropdownsContainer = document.getElementById('control__dropdowns')
   const dropdown = document.createElement('div')
+  dropdown.className = "control__dropdown"
   dropdown.innerHTML = `
           <span>Credit Score</span>
           <select id="credit-score" onchange="mortgage.handleChangeCredirScore(this)">
@@ -71,6 +73,7 @@ function createCredirScoreDropDown() {
 function createLoanAmountDropDown() {
   const dropdownsContainer = document.getElementById('control__dropdowns')
   const dropdown = document.createElement('div')
+  dropdown.className = "control__dropdown"
   dropdown.innerHTML = `
           <span>Loan Amount</span>
           <select id="loan-amount" onchange="mortgage.handleChangeLoanAmount(this)">
