@@ -5,6 +5,7 @@ module.exports = {
     creditScore: ['./src/credit-score/index.js'],
     studentLoan: ['./src/student-loan/index.js'],
     mortgage: ['./src/mortgage/index.js'],
+    cym: ['./src/chooseyourmortgage/index.js'],
   },
   output: {
     filename: '[name].js',
