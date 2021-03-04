@@ -327,6 +327,7 @@ ul.dd_option li {
   align-items: center;
   justify-content: center;
   box-shadow: 0 8px 6px -6px black;
+  z-index: 999999;
 }
 #mobile-filters span {
   font-size: 18px;

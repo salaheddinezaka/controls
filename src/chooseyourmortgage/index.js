@@ -1,3 +1,4 @@
+"use strict";
 import { getStates } from './states'
 import { waitFor } from '../helpers'
 import $ from 'jquery'
@@ -188,6 +189,7 @@ function insertModal() {
 }
 
 export function handleModalButtonsClick(value) {
+  console.log({value})
   $('#purchasOverlayPanel').hide()
 }
 
@@ -250,7 +252,12 @@ export function handleMobileRunFilter() {
 
 async function insertMobileModal() {
   const mobileModal = document.createElement('div')
-  const userLocation = await axios.get('https://geometer.lincx.la/api/lookup')
+  let userLocation;
+  try {
+    userLocation = await axios.get('https://geometer.lincx.la/api/lookup')
+  } catch (error) {
+    console.log(error)
+  }
   mobileModal.innerHTML = `
       <div id="mobileModalContainer">
       <div id="mobileOverlay"></div>
@@ -314,7 +321,7 @@ async function insertMobileModal() {
                     (state) => `
                       <option value="${state.abbreviation}"
                         ${
-                          state.abbreviation === userLocation.data.region
+                          state.abbreviation === userLocation?.data?.region
                             ? 'selected'
                             : ''
                         }>
@@ -336,20 +343,20 @@ async function insertMobileModal() {
   document.body.append(mobileModal)
 }
 
-function toggleMobileModal() {
+export function toggleMobileModal() {
   $('#mobileModalContainer').toggle()
 }
 
-$(document).ready(() => {
-  waitFor('.dropdowns__container', () => {
+$(document).ready(async () => {
+  insertModal()
+  insertMobileModalButton()
+  $('#purchasOverlayPanel').hide()
+  insertMobileModal()
+  $('#mobileModalContainer').hide()
+  waitFor('.dropdowns__container', async () => {
     insertLoanPurposeDropDown()
     insertCreditScoreDropDown()
     insertLoanAmountDropDown()
-    insertModal()
-    $('#purchasOverlayPanel').hide()
     insertLocationDropDown()
-    insertMobileModalButton()
-    insertMobileModal()
-    $('#mobileModalContainer').hide()
   })
 })

@@ -1,11 +1,12 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+require('@babel/polyfill')
 
 module.exports = {
   entry: {
     creditScore: ['./src/credit-score/index.js'],
     studentLoan: ['./src/student-loan/index.js'],
     mortgage: ['./src/mortgage/index.js'],
-    cym: ['./src/chooseyourmortgage/index.js'],
+    cym: ['@babel/polyfill', './src/chooseyourmortgage/index.js']
   },
   output: {
     filename: '[name].js',
@@ -26,8 +27,8 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      },
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
+      }
     ]
   }
 }
