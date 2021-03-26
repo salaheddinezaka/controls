@@ -5,14 +5,14 @@ module.exports = {
   entry: {
     creditScore: ['./src/credit-score/index.js'],
     studentLoan: ['./src/student-loan/index.js'],
-    mortgage: ['./src/mortgage/index.js'],
-    cym: ['@babel/polyfill', './src/chooseyourmortgage/index.js']
+    mortgage: ['./src/mortgage/index.js']
+    // cym: ['@babel/polyfill', './src/chooseyourmortgage/index.js']
   },
   output: {
-    filename: '[name].js',
+    filename: '[name]/[name].js',
     library: '[name]'
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [new MiniCssExtractPlugin({ filename: '[name]/[name].css' })],
   module: {
     rules: [
       {
@@ -21,7 +21,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env', '@babel/preset-react']
           }
         }
       },
