@@ -3,9 +3,10 @@ require('@babel/polyfill')
 
 module.exports = {
   entry: {
-    creditScore: ['./src/credit-score/index.js'],
-    studentLoan: ['./src/student-loan/index.js'],
-    mortgage: ['./src/mortgage/index.js']
+    creditScore: ['./src/controls/credit-score/index.js'],
+    studentLoan: ['./src/controls/student-loan/index.js'],
+    mortgage: ['./src/controls/mortgage/index.js'],
+    'mortgage_v2': ['./src/controls/mortgage-v2/index.js']
     // cym: ['@babel/polyfill', './src/chooseyourmortgage/index.js']
   },
   output: {
