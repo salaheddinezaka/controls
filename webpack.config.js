@@ -1,20 +1,19 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require('path');
+const path = require('path')
 require('@babel/polyfill')
 
 module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 9000,
+    port: 9000
   },
   entry: {
     creditScore: ['./src/controls/credit-score/index.js'],
     studentLoan: ['./src/controls/student-loan/index.js'],
     mortgage: ['./src/controls/mortgage/index.js'],
-    mortgage_v2: [
-      './src/controls/mortgage-v2/index.js']
+    mortgage_v2: ['./src/controls/mortgage-v2/index.js']
     // cym: ['@babel/polyfill', './src/chooseyourmortgage/index.js']
   },
   output: {
