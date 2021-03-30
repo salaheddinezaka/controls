@@ -1,11 +1,5 @@
 import React from 'react'
 import CustomDropDown from '../../components/custom-dropdown'
-import {
-  CreditScoreValues,
-  LoanAmountValues,
-  LoanPurposeValues,
-  StatesValues
-} from '../../utils/default-data'
 import { useMortgageContext } from './state'
 import { MortgageTypes } from './state/mortgage-reducer'
 

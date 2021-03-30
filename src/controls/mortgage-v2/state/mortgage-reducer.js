@@ -13,21 +13,28 @@ export const initialState = {
   selectedLoanPurpose: LoanPurposeValues[0],
   selectedLoanAmount: LoanAmountValues[1],
   selectedCreditScore: CreditScoreValues[2],
-  selectedLocation: StatesValues[0]
+  selectedLocation: StatesValues[0],
+  showPurchaseModal: false,
+  selectedWhen: 'soon'
 }
 
 export const MortgageTypes = {
   SelectLoanPurpose: 'SelectLoanPurpose',
   SelectLoanAmount: 'SelectLoanAmount',
   SelectLocation: 'SelectLocation',
-  SelectCreditScore: 'SelectCreditScore'
+  SelectCreditScore: 'SelectCreditScore',
+  SelectWhen: 'SelectWhen'
 }
 
 export const MortgageReducer = (state = initialState, action) => {
   switch (action.type) {
     case MortgageTypes.SelectLoanPurpose: {
       if (action.payload.value === 'purchase') {
-        console.log('Show Modal')
+        return {
+          ...state,
+          selectedLoanPurpose: action.payload,
+          showPurchaseModal: true
+        }
       }
       return { ...state, selectedLoanPurpose: action.payload }
     }
@@ -39,6 +46,13 @@ export const MortgageReducer = (state = initialState, action) => {
     }
     case MortgageTypes.SelectLocation: {
       return { ...state, selectedLocation: action.payload }
+    }
+    case MortgageTypes.SelectWhen: {
+      return {
+        ...state,
+        selectedWhen: action.payload ?? 'soon',
+        showPurchaseModal: false
+      }
     }
     default: {
       return state
