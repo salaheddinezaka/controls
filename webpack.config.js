@@ -13,6 +13,7 @@ module.exports = {
   entry: {
     creditScore: ['./src/controls/credit-score/index.js'],
     studentLoan: ['./src/controls/student-loan/index.js'],
+    studentLoanV2: ['./src/controls/student-loan-v2/index.js'],
     mortgage: ['./src/controls/mortgage/index.js'],
     mortgage_v2: ['./src/controls/mortgage-v2/index.js']
     // cym: ['@babel/polyfill', './src/chooseyourmortgage/index.js']
@@ -26,7 +27,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       chunks: ['mortgage_v2'],
       template: './src/controls/mortgage-v2/index.html',
-      filename: '[name]/index.html'
+      filename: 'mortgage_v2/index.html',
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['studentLoanV2'],
+      template: './src/controls/student-loan-v2/index.html',
+      filename: 'studentLoanV2/index.html',
     })
   ],
   module: {
