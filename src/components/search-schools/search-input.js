@@ -29,7 +29,7 @@ const SuggestionItem = ({ collegeName, collegeAddress, onClick }) => {
   )
 }
 
-const SearchInput = () => {
+const SearchInput = ({ shouldSubmitOnSelect = false }) => {
   const {
     state: { searchValue, collegesSuggestions, showSuggestions },
     dispatch
@@ -40,6 +40,13 @@ const SearchInput = () => {
     isCaseSensitive: false,
     minMatchCharLength: 2
   })
+
+  const handleSubmitOnSelect = (item) => {
+    dispatch(handleSelectCollege(item))
+    if (shouldSubmitOnSelect && window.renderAdFeed != undefined) {
+      window.renderAdFeed({ 'data-school': item.opeid })
+    }
+  }
 
   return (
     <SearchInputContainer>
@@ -54,9 +61,10 @@ const SearchInput = () => {
         <SuggestionsList>
           {collegesSuggestions.map(({ item }) => (
             <SuggestionItem
+              key={item.opeid}
               collegeName={item.school_name}
               collegeAddress="Cambridge, Massachusetts"
-              onClick={() => dispatch(handleSelectCollege(item))}
+              onClick={() => handleSubmitOnSelect(item)}
             />
           ))}
         </SuggestionsList>

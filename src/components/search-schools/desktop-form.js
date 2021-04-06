@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { below } from '../../utils/media-query'
 import SearchInput from './search-input'
 
 const DesktopForm = () => {
@@ -7,7 +8,7 @@ const DesktopForm = () => {
     <FormContainer>
       <ImageStyled src="https://cdn.zeplin.io/5fb6b6e30914549574b7eeee/assets/9591DAD2-597C-46C4-8824-745D5F1E7B82.png" />
       <SearchTitle>Which college will you be attending?</SearchTitle>
-      <SearchInput />
+      <SearchInput shouldSubmitOnSelect={true} />
     </FormContainer>
   )
 }
@@ -23,6 +24,9 @@ const FormContainer = styled.div`
   gap: 16px;
   z-index: 9999;
   margin-bottom: 16px;
+  ${below.small`
+    display: none;
+  `}
 `
 
 const ImageStyled = styled.img`

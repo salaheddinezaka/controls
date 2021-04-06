@@ -1,16 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import Fuse from 'fuse.js'
-import colleges from '../../utils/schools.json'
 import SearchInput from './search-input'
 import { usePSLContext } from '../../controls/student-loan-v2/state/context'
 import { SearchTypes } from '../../controls/student-loan-v2/state/search-reducer'
-
-const fuse = new Fuse(colleges, {
-  keys: ['opeid', 'school_name'],
-  isCaseSensitive: false,
-  minMatchCharLength: 4
-})
 
 const SearchSchoolsModal = () => {
   const {
@@ -41,7 +33,9 @@ const SearchSchoolsModal = () => {
             <SearchInput />
             <SubmitSearchButton
               onClick={() => {
-                // RE-LOAD ZONE VALUE
+                if (window.renderAdFeed != undefined) {
+                  window.renderAdFeed({ 'data-school': selectedCollege.opeid })
+                }
                 selectedCollege &&
                   dispatch({ type: SearchTypes.CLOSE_INITIAL_MODAL })
               }}
@@ -77,6 +71,7 @@ const ModalContainer = styled.div`
   box-shadow: 0 2px 60px 0 rgba(112, 115, 114, 0.13);
   padding: 80px 95px;
   box-sizing: border-box;
+
   svg {
     height: 20px;
     width: 20px;
