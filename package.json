@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack  --mode production",
     "develop": "webpack -w --mode=development",
-    "serve": "webpack serve",
+    "serve": "webpack serve --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "zaka salah eddine",
@@ -37,6 +37,7 @@
     "animejs": "^3.2.1",
     "axios": "^0.21.1",
     "babel-loader": "^8.2.2",
+    "fuse.js": "^6.4.6",
     "jquery": "^3.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
