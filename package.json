@@ -5,30 +5,42 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack  --mode production",
-    "develop": "webpack -w --mode=development",
+    "develop": "webpack serve --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "zaka salah eddine",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-react": "^7.12.13",
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^5.0.2",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.3.7",
     "style-loader": "^2.0.0",
     "webpack": "^5.22.0",
-    "webpack-cli": "^4.5.0"
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   },
   "dependencies": {
-    "@babel/core": "^7.12.16",
+    "@babel/core": "^7.13.10",
     "@babel/polyfill": "^7.12.1",
-    "@babel/preset-env": "^7.12.16",
+    "@babel/preset-env": "^7.13.12",
     "@trevoreyre/autocomplete-js": "^2.2.0",
     "animejs": "^3.2.1",
     "axios": "^0.21.1",
     "babel-loader": "^8.2.2",
-    "jquery": "^3.5.1"
+    "framer-motion": "^4.1.3",
+    "fuse.js": "^6.4.6",
+    "jquery": "^3.5.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.2.1"
   }
 }
