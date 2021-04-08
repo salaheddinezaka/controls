@@ -3,14 +3,16 @@ export const initialState = {
   selectedCollege: null,
   collegesSuggestions: [],
   showSuggestions: false,
-  showModal: true
+  showModal: true,
+  showMobileFilters: false
 }
 
 export const SearchTypes = {
   SEARCH_VALUE_CHANGED: 'SEARCH_VALUE_CHANGED',
   SELECT_COLLEGE: 'SELECT_COLLEGE',
   SUGGESTIONS_LIST_UPDATED: 'SUGGESTIONS_LIST_UPDATED',
-  CLOSE_INITIAL_MODAL: 'CLOSE_INITIAL_MODAL'
+  CLOSE_INITIAL_MODAL: 'CLOSE_INITIAL_MODAL',
+  SHOW_MOBILE_FILTERS: 'SHOW_MOBILE_FILTERS'
 }
 
 export const SearchReducer = (state = initialState, action) => {
@@ -34,6 +36,12 @@ export const SearchReducer = (state = initialState, action) => {
       return {
         ...state,
         showModal: false
+      }
+    }
+    case SearchTypes.SHOW_MOBILE_FILTERS: {
+      return {
+        ...state,
+        showMobileFilters: action.payload
       }
     }
     default: {

@@ -11,3 +11,7 @@ export const handleSelectCollege = (selectedCollege) => {
 export const updateSuggestions = (suggestions) => {
   return { type: SearchTypes.SUGGESTIONS_LIST_UPDATED, payload: suggestions }
 }
+
+export const handleShowMobileFilters = (shouldShow = false) => {
+  return { type: SearchTypes.SHOW_MOBILE_FILTERS, payload: shouldShow }
+}

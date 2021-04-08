@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import SearchInput from './search-input'
 import { usePSLContext } from '../../controls/student-loan-v2/state/context'
 import { SearchTypes } from '../../controls/student-loan-v2/state/search-reducer'
+import { ModalBackground } from '../styled'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const SearchSchoolsModal = () => {
   const {
@@ -10,9 +12,15 @@ const SearchSchoolsModal = () => {
     state: { selectedCollege }
   } = usePSLContext()
   return (
-    <>
-      <ModalBackground />
-      <ModalContainer>
+    <AnimatePresence exitBeforeEnter>
+      <ModalBackground
+        onClick={() => dispatch({ type: SearchTypes.CLOSE_INITIAL_MODAL })}
+      />
+      <ModalContainer
+        initial={{ y: -100, x: '-50%' }}
+        animate={{ y: 50, x: '-50%' }}
+        exit={{ y: '100%', x: '-50%' }}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="329pt"
@@ -45,20 +53,11 @@ const SearchSchoolsModal = () => {
           </ModalFormContainer>
         </ModalContent>
       </ModalContainer>
-    </>
+    </AnimatePresence>
   )
 }
 
-const ModalBackground = styled.div`
-  position: fixed;
-  background: rgba(0, 0, 0, 0.8);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9998;
-`
-const ModalContainer = styled.div`
+const ModalContainer = styled(motion.div)`
   position: absolute;
   max-height: calc(100vh - 60px);
   width: 70%;
@@ -109,45 +108,6 @@ const ModalFormContainer = styled.div`
   justify-content: space-between;
   gap: 16px;
 `
-const SearchInputContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  border: solid 1px #979797;
-  border-radius: 4px;
-  flex: 1;
-  label {
-    font-family: Roboto;
-    font-size: 18px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1;
-    letter-spacing: normal;
-    color: #121212;
-    position: absolute;
-    top: -10px;
-    left: 10px;
-    background: #ffffff;
-    z-index: 9;
-    padding: 0 10px;
-  }
-  input {
-    padding: 20px 20px;
-    opacity: 0.8;
-    font-family: Roboto;
-    font-size: 22px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.09;
-    letter-spacing: -0.21px;
-    color: rgb(18, 18, 18);
-    width: 100%;
-    border: none;
-    outline: none;
-  }
-`
 const SubmitSearchButton = styled.button`
   font-family: Poppins;
   font-size: 24px;
@@ -162,62 +122,6 @@ const SubmitSearchButton = styled.button`
   border-radius: 4px;
   padding: 22px 46px;
   background-color: #1a73e8;
-`
-const SuggestionsList = styled.ul`
-  position: absolute;
-  top: 102%;
-  border-radius: 4px;
-  box-shadow: 0 1px 4px 0 rgb(60 64 67 / 30%);
-  background-color: #ffffff;
-  width: 100%;
-  list-style: none;
-  padding-inline-start: 0;
-  height: 224px;
-  overflow-y: scroll;
-`
-const SuggestionItemStyle = styled.li`
-  padding: 12px 0px;
-  user-select: none;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  svg {
-    color: transparent;
-    position: initial;
-    margin: 0 12px;
-  }
-  .school__name {
-    display: block;
-    opacity: 0.8;
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.5;
-    letter-spacing: -0.15px;
-    color: #121212;
-  }
-  .school__adress {
-    display: block;
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.5;
-    letter-spacing: -0.15px;
-    color: #808080;
-  }
-  &:hover {
-    background-color: #e8f0fe;
-    .school__name,
-    .school__adress {
-      color: #1a73e8;
-    }
-    svg {
-      color: #fbbc06;
-    }
-  }
 `
 export default SearchSchoolsModal

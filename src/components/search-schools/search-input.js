@@ -6,9 +6,10 @@ import {
 } from '../../controls/student-loan-v2/state/actions'
 import { usePSLContext } from '../../controls/student-loan-v2/state/context'
 import useFuzzySearch from '../../hooks/useFuzzySearch'
+import { above, below } from '../../utils/media-query'
 import colleges from '../../utils/schools.json'
 
-const SuggestionItem = ({ collegeName, collegeAddress, onClick }) => {
+const SuggestionItem = ({ collegeName, onClick }) => {
   return (
     <SuggestionItemStyle onClick={onClick}>
       <svg
@@ -23,7 +24,6 @@ const SuggestionItem = ({ collegeName, collegeAddress, onClick }) => {
       </svg>
       <div>
         <span className="school__name">{collegeName}</span>
-        <span className="school__adress">{collegeAddress}</span>
       </div>
     </SuggestionItemStyle>
   )
@@ -63,7 +63,6 @@ const SearchInput = ({ shouldSubmitOnSelect = false }) => {
             <SuggestionItem
               key={item.opeid}
               collegeName={item.school_name}
-              collegeAddress="Cambridge, Massachusetts"
               onClick={() => handleSubmitOnSelect(item)}
             />
           ))}
@@ -114,7 +113,6 @@ const SearchInputContainer = styled.div`
 `
 const SuggestionsList = styled.ul`
   position: absolute;
-  top: 102%;
   border-radius: 4px;
   box-shadow: 0 1px 4px 0 rgb(60 64 67 / 30%);
   background-color: #ffffff;
@@ -124,6 +122,12 @@ const SuggestionsList = styled.ul`
   max-height: 224px;
   overflow-y: scroll;
   z-index: 999;
+  ${below.small`
+    bottom: 102%;
+  `}
+  ${above.small`
+    top: 102%;
+  `}
 `
 const SuggestionItemStyle = styled.li`
   padding: 12px 0px;
