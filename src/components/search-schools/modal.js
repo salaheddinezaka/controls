@@ -5,6 +5,7 @@ import { usePSLContext } from '../../controls/student-loan-v2/state/context'
 import { SearchTypes } from '../../controls/student-loan-v2/state/search-reducer'
 import { ModalBackground } from '../styled'
 import { AnimatePresence, motion } from 'framer-motion'
+import { below } from '../../utils/media-query'
 
 const SearchSchoolsModal = () => {
   const {
@@ -80,6 +81,9 @@ const ModalContainer = styled(motion.div)`
     right: 10px;
     top: 10px;
   }
+  ${below.med`
+    padding: 40px 20px;
+  `}
 `
 const ModalContent = styled.div`
   margin: 0 auto;
@@ -92,6 +96,11 @@ const ModalHeader = styled.div`
   img {
     height: 144px;
   }
+  ${below.med`
+    img {
+      height: 96px;
+    }
+  `}
 `
 const ModalTitle = styled.div`
   font-family: Poppins;
@@ -102,6 +111,9 @@ const ModalTitle = styled.div`
   line-height: 1.46;
   letter-spacing: normal;
   color: #3c3b3b;
+  ${below.med`
+    font-size: 40px;
+  `}
 `
 const ModalFormContainer = styled.div`
   display: flex;

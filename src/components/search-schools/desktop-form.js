@@ -42,6 +42,10 @@ const SearchTitle = styled.div`
   line-height: 0.8;
   letter-spacing: normal;
   color: #121212;
+  ${below.med`
+    width: 203px;
+    line-height: 1.4;
+  `}
 `
 
 export default DesktopForm
