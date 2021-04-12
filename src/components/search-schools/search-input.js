@@ -99,7 +99,7 @@ const SearchInputContainer = styled.div`
     padding: 20px 20px;
     opacity: 0.8;
     font-family: Roboto;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -110,6 +110,9 @@ const SearchInputContainer = styled.div`
     border: none;
     outline: none;
   }
+  ${above.small`
+    font-size: 22px;
+  `}
 `
 const SuggestionsList = styled.ul`
   position: absolute;
@@ -119,14 +122,13 @@ const SuggestionsList = styled.ul`
   width: 100%;
   list-style: none;
   padding-inline-start: 0;
-  max-height: 224px;
   overflow-y: scroll;
   z-index: 999;
-  ${below.small`
-    bottom: 102%;
-  `}
+  bottom: 102%;
+  max-height: 154px;
   ${above.small`
     top: 102%;
+    max-height: 224px;
   `}
 `
 const SuggestionItemStyle = styled.li`

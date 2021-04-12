@@ -38,6 +38,7 @@ const MobileFilters = () => {
               animate={{ y: 0 }}
               exit={{ y: 300 }}
             >
+              <ModalWhiteBar />
               <ModalHeader>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -61,6 +62,13 @@ const MobileFilters = () => {
     </>
   )
 }
+const ModalWhiteBar = styled.div`
+  height: 5px;
+  width: 40px;
+  border-radius: 1.5px;
+  background-color: #ffffff;
+  margin: 0 auto 10px;
+`
 const ModalContainer = styled(motion.div)`
   position: fixed;
   width: 100%;

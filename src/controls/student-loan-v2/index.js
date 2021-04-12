@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import SearchSchools from '../../components/search-schools'
 import { waitFor } from '../../utils/helpers'
 import { PrivateStudentLoanSearchProvider } from './state/context'
-import './style.css'
 
 waitFor('#search-schools-control', () => {
   ReactDOM.render(
