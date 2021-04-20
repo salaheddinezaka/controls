@@ -4,7 +4,7 @@ import SearchInput from './search-input'
 import { usePSLContext } from '../../controls/student-loan-v2/state/context'
 import { SearchTypes } from '../../controls/student-loan-v2/state/search-reducer'
 import { ModalBackground } from '../styled'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { below } from '../../utils/media-query'
 
 const SearchSchoolsModal = () => {
@@ -13,14 +13,14 @@ const SearchSchoolsModal = () => {
     state: { selectedCollege }
   } = usePSLContext()
   return (
-    <AnimatePresence exitBeforeEnter>
+    <>
       <ModalBackground
         onClick={() => dispatch({ type: SearchTypes.CLOSE_INITIAL_MODAL })}
       />
       <ModalContainer
         initial={{ y: -100, x: '-50%' }}
         animate={{ y: 50, x: '-50%' }}
-        exit={{ y: '100%', x: '-50%' }}
+        exit={{ y: '100%', x: '-50%', opacity: 0 }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +54,7 @@ const SearchSchoolsModal = () => {
           </ModalFormContainer>
         </ModalContent>
       </ModalContainer>
-    </AnimatePresence>
+    </>
   )
 }
 

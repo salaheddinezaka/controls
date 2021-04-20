@@ -129,6 +129,7 @@ const SuggestionsList = styled.ul`
   ${above.small`
     top: 102%;
     max-height: 224px;
+    bottom: auto;
   `}
 `
 const SuggestionItemStyle = styled.li`

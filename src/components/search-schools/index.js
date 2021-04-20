@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import SearchSchoolsModal from './modal'
 import DesktopForm from './desktop-form'
 import { usePSLContext } from '../../controls/student-loan-v2/state/context'
@@ -28,7 +29,9 @@ const SearchSchools = () => {
   }, [width])
   return (
     <>
-      {showModal ? <SearchSchoolsModal /> : null}
+      <AnimatePresence exitBeforeEnter>
+        {showModal && <SearchSchoolsModal />}
+      </AnimatePresence>
       {showMobileFilters ? <MobileFilters /> : null}
       <DesktopForm />
     </>
