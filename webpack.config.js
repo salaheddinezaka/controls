@@ -17,6 +17,24 @@ function getEntries() {
   return entries
 }
 
+function getHtmlTemplates() {
+  const templates = []
+
+  fs.readdirSync('./src/controls').map((file) => {
+    if (fs.existsSync(`./src/controls/${file}/index.html`)) {
+      templates.push(
+        new HtmlWebpackPlugin({
+          chunks: [camelCase(file)],
+          template: `./src/controls/${file}/index.html`,
+          filename: `${camelCase(file)}/index.html`
+        })
+      )
+    }
+  })
+
+  return templates
+}
+
 module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
@@ -31,16 +49,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({ filename: '[name]/[name].css' }),
-    new HtmlWebpackPlugin({
-      chunks: ['mortgage_v2'],
-      template: './src/controls/mortgage-v2/index.html',
-      filename: 'mortgage_v2/index.html'
-    }),
-    new HtmlWebpackPlugin({
-      chunks: ['studentLoanV2'],
-      template: './src/controls/student-loan-v2/index.html',
-      filename: 'studentLoanV2/index.html'
-    })
+    ...getHtmlTemplates()
   ],
   module: {
     rules: [
