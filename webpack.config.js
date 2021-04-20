@@ -2,6 +2,20 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 require('@babel/polyfill')
+const fs = require('fs')
+const { camelCase } = require('lodash')
+
+function getEntries() {
+  const entries = {}
+
+  fs.readdirSync('./src/controls').map((file) => {
+    if (fs.existsSync(`./src/controls/${file}/index.js`)) {
+      entries[camelCase(file)] = [`./src/controls/${file}/index.js`]
+    }
+  })
+
+  return entries
+}
 
 module.exports = {
   devServer: {
@@ -10,14 +24,7 @@ module.exports = {
     hot: true,
     port: 9000
   },
-  entry: {
-    creditScore: ['./src/controls/credit-score/index.js'],
-    studentLoan: ['./src/controls/student-loan/index.js'],
-    studentLoanV2: ['./src/controls/student-loan-v2/index.js'],
-    mortgage: ['./src/controls/mortgage/index.js'],
-    mortgage_v2: ['./src/controls/mortgage-v2/index.js']
-    // cym: ['@babel/polyfill', './src/chooseyourmortgage/index.js']
-  },
+  entry: getEntries(),
   output: {
     filename: '[name]/[name].js',
     library: '[name]'
@@ -27,12 +34,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       chunks: ['mortgage_v2'],
       template: './src/controls/mortgage-v2/index.html',
-      filename: 'mortgage_v2/index.html',
+      filename: 'mortgage_v2/index.html'
     }),
     new HtmlWebpackPlugin({
       chunks: ['studentLoanV2'],
       template: './src/controls/student-loan-v2/index.html',
-      filename: 'studentLoanV2/index.html',
+      filename: 'studentLoanV2/index.html'
     })
   ],
   module: {

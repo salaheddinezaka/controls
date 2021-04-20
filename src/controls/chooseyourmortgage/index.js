@@ -18,7 +18,7 @@ async function setZoneAttributes(attribute, value) {
   window.zoneAttributes[attribute] = value
 }
 
-export function updateZoneAttribute() {
+export async function updateZoneAttribute() {
   console.log(window.zoneAttributes)
   window.renderAdFeed(window.zoneAttributes)
   await addTrustPilot()
