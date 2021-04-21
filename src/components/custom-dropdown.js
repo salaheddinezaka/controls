@@ -32,6 +32,7 @@ const CustomDropDown = ({
                 handleOptionChanged(selectionType, option)
               }}
               selected={option.value === selectedOption.value}
+              key={option.value}
             >
               {option.value === selectedOption.value && (
                 <svg

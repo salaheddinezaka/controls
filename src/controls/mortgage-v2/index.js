@@ -1,16 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { waitFor } from '../../utils/helpers'
-import DropDowns from './dropdowns'
-import PurchaseWhenModal from './purchase-modal'
+import MortgageControls from './mortgage-controls'
 import { MortgageControlsProvider } from './state'
 
-waitFor('#dropdown__controls', () => {
+waitFor('#__controls__', () => {
   ReactDOM.render(
     <MortgageControlsProvider>
-      <DropDowns />
-      <PurchaseWhenModal />
+      <MortgageControls />
     </MortgageControlsProvider>,
-    document.getElementById('dropdown__controls')
+    document.getElementById('__controls__')
   )
 })
