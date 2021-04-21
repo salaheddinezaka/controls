@@ -15,3 +15,7 @@ export const updateSuggestions = (suggestions) => {
 export const handleShowMobileFilters = (shouldShow = false) => {
   return { type: SearchTypes.SHOW_MOBILE_FILTERS, payload: shouldShow }
 }
+
+export const handleClearSearch = () => {
+  return { type: SearchTypes.CLEAR_INPUT }
+}

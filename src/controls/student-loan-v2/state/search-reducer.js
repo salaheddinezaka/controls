@@ -12,7 +12,8 @@ export const SearchTypes = {
   SELECT_COLLEGE: 'SELECT_COLLEGE',
   SUGGESTIONS_LIST_UPDATED: 'SUGGESTIONS_LIST_UPDATED',
   CLOSE_INITIAL_MODAL: 'CLOSE_INITIAL_MODAL',
-  SHOW_MOBILE_FILTERS: 'SHOW_MOBILE_FILTERS'
+  SHOW_MOBILE_FILTERS: 'SHOW_MOBILE_FILTERS',
+  CLEAR_INPUT: 'CLEAR_INPUT'
 }
 
 export const SearchReducer = (state = initialState, action) => {
@@ -42,6 +43,13 @@ export const SearchReducer = (state = initialState, action) => {
       return {
         ...state,
         showMobileFilters: action.payload
+      }
+    }
+    case SearchTypes.CLEAR_INPUT: {
+      return {
+        ...state,
+        searchValue: '',
+        selectedCollege: null
       }
     }
     default: {

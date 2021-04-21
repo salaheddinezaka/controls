@@ -12,7 +12,7 @@ const MobileFilters = () => {
     state: { selectedCollege }
   } = usePSLContext()
   const handleSearchSubmit = () => {
-    if (window.renderAdFeed != undefined) {
+    if (selectedCollege && window.renderAdFeed != undefined) {
       window.renderAdFeed({ 'data-school': selectedCollege.opeid })
     }
     handleCloseModal()

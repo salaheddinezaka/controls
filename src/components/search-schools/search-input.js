@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {
+  handleClearSearch,
   handleSearchValueChanged,
   handleSelectCollege
 } from '../../controls/student-loan-v2/state/actions'
@@ -48,6 +49,13 @@ const SearchInput = ({ shouldSubmitOnSelect = false }) => {
     }
   }
 
+  const handleClearClick = () => {
+    dispatch(handleClearSearch())
+    if (window.renderAdFeed != undefined) {
+      window.renderAdFeed({ 'data-school': 'default' })
+    }
+  }
+
   return (
     <SearchInputContainer>
       <label htmlFor="search__input">College</label>
@@ -57,6 +65,7 @@ const SearchInput = ({ shouldSubmitOnSelect = false }) => {
         value={searchValue}
         onChange={(val) => dispatch(handleSearchValueChanged(val.target.value))}
       />
+      {searchValue && <ClearIcon onClick={handleClearClick}>x</ClearIcon>}
       {showSuggestions && (
         <SuggestionsList>
           {collegesSuggestions.map(({ item }) => (
@@ -113,6 +122,16 @@ const SearchInputContainer = styled.div`
   ${above.small`
     font-size: 22px;
   `}
+`
+
+const ClearIcon = styled.span`
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: 0.5;
+  color: #141c1f;
 `
 const SuggestionsList = styled.ul`
   position: absolute;

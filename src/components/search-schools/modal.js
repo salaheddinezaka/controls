@@ -132,7 +132,7 @@ const SubmitSearchButton = styled.button`
   color: #ffffff;
   border: none;
   border-radius: 4px;
-  padding: 22px 46px;
+  padding: 19px 46px;
   background-color: #1a73e8;
   cursor: pointer;
 `
