@@ -15,7 +15,8 @@ export const initialState = {
   selectedCreditScore: CreditScoreValues[2],
   selectedLocation: StatesValues[0],
   showPurchaseModal: false,
-  selectedWhen: 'soon'
+  selectedWhen: 'soon',
+  showMobileFilters: false
 }
 
 export const MortgageTypes = {
@@ -23,7 +24,8 @@ export const MortgageTypes = {
   SelectLoanAmount: 'SelectLoanAmount',
   SelectLocation: 'SelectLocation',
   SelectCreditScore: 'SelectCreditScore',
-  SelectWhen: 'SelectWhen'
+  SelectWhen: 'SelectWhen',
+  ToggleModalFilters: 'ToggleModalFilters'
 }
 
 export const MortgageReducer = (state = initialState, action) => {
@@ -52,6 +54,12 @@ export const MortgageReducer = (state = initialState, action) => {
         ...state,
         selectedWhen: action.payload ?? 'soon',
         showPurchaseModal: false
+      }
+    }
+    case MortgageTypes.ToggleModalFilters: {
+      return {
+        ...state,
+        showMobileFilters: !state.showMobileFilters
       }
     }
     default: {
