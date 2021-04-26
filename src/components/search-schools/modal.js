@@ -5,7 +5,7 @@ import { usePSLContext } from '../../controls/student-loan-v2/state/context'
 import { SearchTypes } from '../../controls/student-loan-v2/state/search-reducer'
 import { ModalBackground } from '../styled'
 import { motion } from 'framer-motion'
-import { below } from '../../utils/media-query'
+import { above, below } from '../../utils/media-query'
 
 const SearchSchoolsModal = () => {
   const {
@@ -83,7 +83,9 @@ const ModalContainer = styled(motion.div)`
   }
   ${below.med`
     padding: 40px 20px;
+    width: 90%;
   `}
+  
 `
 const ModalContent = styled.div`
   margin: 0 auto;
@@ -92,7 +94,8 @@ const ModalHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 71px;
+  flex-direction: column-reverse;
+  margin-bottom: 16px;
   img {
     height: 144px;
   }
@@ -101,28 +104,40 @@ const ModalHeader = styled.div`
       height: 96px;
     }
   `}
+  ${above.med`
+    flex-direction: row;
+    margin-bottom: 71px;
+  `}
 `
 const ModalTitle = styled.div`
   font-family: Poppins;
-  font-size: 48px;
+  font-size: 22px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.46;
   letter-spacing: normal;
   color: #3c3b3b;
-  ${below.med`
+  text-align: center;
+  ${above.med`
     font-size: 40px;
+    text-align: start;
+  `}
+  ${above.large`
+    font-size: 48px;
   `}
 `
 const ModalFormContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 16px;
+  flex-direction: column;
+  ${above.med`
+    flex-direction: row;
+  `}
 `
 const SubmitSearchButton = styled.button`
   font-family: Poppins;
-  font-size: 24px;
+  font-size: 14px;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
@@ -135,5 +150,11 @@ const SubmitSearchButton = styled.button`
   padding: 19px 46px;
   background-color: #1a73e8;
   cursor: pointer;
+  margin-top: 16px;
+  ${above.med`
+    font-size: 24px;
+    margin-top: 0;
+    margin-left: 16px;
+  `}
 `
 export default SearchSchoolsModal

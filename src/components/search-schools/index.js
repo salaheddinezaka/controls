@@ -15,15 +15,15 @@ const SearchSchools = () => {
   } = usePSLContext()
   const [width] = useWindowSize()
   useEffect(() => {
-    // Closing the modal if the width of the screen goes to mobile size
-    if (showModal && width > 0 && width <= 768) {
-      dispatch({ type: SearchTypes.CLOSE_INITIAL_MODAL })
-    }
+    // // Closing the modal if the width of the screen goes to mobile size
+    // if (showModal && width > 0 && width <= 768) {
+    //   dispatch({ type: SearchTypes.CLOSE_INITIAL_MODAL })
+    // }
     
-    // Show the modal if the width is desktop and the modal isn't showing or never closed
-    if (shouldShowInitialModal && !showModal && width > 768) {
-      dispatch({ type: SearchTypes.START_INITIAL_MODAL })
-    }
+    // // Show the modal if the width is desktop and the modal isn't showing or never closed
+    // if (shouldShowInitialModal && !showModal && width > 768) {
+    //   dispatch({ type: SearchTypes.START_INITIAL_MODAL })
+    // }
 
     // Show Mobile Filters on the width of mobile size
     if (!showMobileFilters && width > 0 && width <= 768) {

@@ -4,7 +4,7 @@ export const initialState = {
   collegesSuggestions: [],
   showSuggestions: false,
   shouldShowInitialModal: true,
-  showModal: false,
+  showModal: true,
   showMobileFilters: false
 }
 
