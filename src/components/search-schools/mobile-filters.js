@@ -16,6 +16,8 @@ const MobileFilters = () => {
       window.renderAdFeed({ 'data-school': selectedCollege.opeid })
     }
     handleCloseModal()
+    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 0
   }
 
   const handleCloseModal = () => {
