@@ -21,7 +21,6 @@ const FormContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
   z-index: 9999;
   margin-bottom: 16px;
   ${below.small`
@@ -42,6 +41,7 @@ const SearchTitle = styled.div`
   line-height: 0.8;
   letter-spacing: normal;
   color: #121212;
+  margin: auto 16px;
   ${below.med`
     width: 203px;
     line-height: 1.4;
