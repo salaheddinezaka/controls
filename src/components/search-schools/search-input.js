@@ -37,7 +37,7 @@ const SearchInput = ({ shouldSubmitOnSelect = false }) => {
   } = usePSLContext()
 
   useFuzzySearch(colleges, {
-    keys: ['opeid', 'school_name'],
+    keys: ['opeid', 'school_name', 'school_abv'],
     isCaseSensitive: false,
     minMatchCharLength: 2
   })

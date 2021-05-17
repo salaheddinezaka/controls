@@ -85,7 +85,6 @@ const ModalContainer = styled(motion.div)`
     padding: 40px 20px;
     width: 90%;
   `}
-  
 `
 const ModalContent = styled.div`
   margin: 0 auto;
@@ -110,7 +109,7 @@ const ModalHeader = styled.div`
   `}
 `
 const ModalTitle = styled.div`
-  font-family: Poppins;
+  font-family: var(--lincxHeaderFont);
   font-size: 22px;
   font-weight: bold;
   font-stretch: normal;
@@ -136,7 +135,7 @@ const ModalFormContainer = styled.div`
   `}
 `
 const SubmitSearchButton = styled.button`
-  font-family: Poppins;
+  font-family: var(--lincxContentFont);
   font-size: 14px;
   font-weight: 500;
   font-stretch: normal;
@@ -148,7 +147,7 @@ const SubmitSearchButton = styled.button`
   border: none;
   border-radius: 4px;
   padding: 19px 46px;
-  background-color: #1a73e8;
+  background-color: var(--lincxPrimaryColor);
   cursor: pointer;
   margin-top: 16px;
   ${above.med`
