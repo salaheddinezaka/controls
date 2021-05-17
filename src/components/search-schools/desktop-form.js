@@ -34,7 +34,7 @@ const ImageStyled = styled.img`
   object-fit: contain;
 `
 const SearchTitle = styled.div`
-  font-family: Poppins;
+  font-family: var(--lincxContentFont);
   font-size: 20px;
   font-weight: 500;
   font-stretch: normal;

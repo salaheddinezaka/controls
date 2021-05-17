@@ -89,7 +89,7 @@ const SearchInputContainer = styled.div`
   border-radius: 4px;
   flex: 1;
   label {
-    font-family: Roboto;
+    font-family: var(--lincxContentFont);
     font-size: 18px;
     font-weight: normal;
     font-stretch: normal;
@@ -107,7 +107,7 @@ const SearchInputContainer = styled.div`
   input {
     padding: 20px 20px;
     opacity: 0.8;
-    font-family: Roboto;
+    font-family: var(--lincxContentFont);
     font-size: 16px;
     font-weight: bold;
     font-stretch: normal;
@@ -167,7 +167,7 @@ const SuggestionItemStyle = styled.li`
   .school__name {
     display: block;
     opacity: 0.8;
-    font-family: Roboto;
+    font-family: var(--lincxContentFont);
     font-size: 16px;
     font-weight: bold;
     font-stretch: normal;
@@ -178,7 +178,7 @@ const SuggestionItemStyle = styled.li`
   }
   .school__adress {
     display: block;
-    font-family: Roboto;
+    font-family: var(--lincxContentFont);
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
