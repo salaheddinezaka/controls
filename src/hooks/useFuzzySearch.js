@@ -10,7 +10,7 @@ export default function useFuzzySearch(data, options) {
   } = usePSLContext()
 
   const searcher = useMemo(() => {
-    const defaultOptions = { tokenize: true, threshold: 0.6 }
+    const defaultOptions = { tokenize: true, threshold: 0.1 }
     return new Fuse(data, { ...defaultOptions, ...options })
   }, [data, options])
 

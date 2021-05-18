@@ -43,6 +43,7 @@ const SearchInput = ({ shouldSubmitOnSelect = false }) => {
   })
 
   const handleSubmitOnSelect = (item) => {
+    document.getElementById('modal-button-filter').focus()
     dispatch(handleSelectCollege(item))
     if (shouldSubmitOnSelect && window.renderAdFeed != undefined) {
       window.renderAdFeed({ 'data-school': item.opeid })
