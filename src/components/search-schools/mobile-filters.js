@@ -53,7 +53,9 @@ const MobileFilters = () => {
               </ModalHeader>
               <ModalBody>
                 <SearchInput />
-                <SubmitButton onClick={handleSearchSubmit}>
+                <SubmitButton
+                  onClick={handleSearchSubmit}
+                >
                   Apply Changes
                 </SubmitButton>
               </ModalBody>

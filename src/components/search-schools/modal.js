@@ -41,7 +41,6 @@ const SearchSchoolsModal = () => {
           <ModalFormContainer>
             <SearchInput />
             <SubmitSearchButton
-              id="modal-button-filter"
               onClick={() => {
                 if (window.renderAdFeed != undefined) {
                   window.renderAdFeed({ 'data-school': selectedCollege.opeid })
