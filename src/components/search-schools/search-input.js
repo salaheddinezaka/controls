@@ -84,7 +84,6 @@ const SearchInput = ({ shouldSubmitOnSelect = false }) => {
 const SearchInputContainer = styled.div`
   position: relative;
   display: flex;
-  flex-direction: column;
   border: solid 1px #979797;
   border-radius: 4px;
   flex: 1;
