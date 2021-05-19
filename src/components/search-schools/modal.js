@@ -21,6 +21,7 @@ const SearchSchoolsModal = () => {
         initial={{ y: -100, x: '-50%' }}
         animate={{ y: 50, x: '-50%' }}
         exit={{ y: '100%', x: '-50%', opacity: 0 }}
+        id="lincx-search-modal"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

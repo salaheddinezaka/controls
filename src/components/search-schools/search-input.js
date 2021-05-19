@@ -57,7 +57,7 @@ const SearchInput = ({ shouldSubmitOnSelect = false }) => {
   }
 
   return (
-    <SearchInputContainer>
+    <SearchInputContainer id="lincx-search-input">
       <label htmlFor="search__input">College</label>
       <input
         type="text"

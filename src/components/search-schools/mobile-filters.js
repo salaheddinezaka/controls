@@ -39,6 +39,7 @@ const MobileFilters = () => {
               initial={{ y: 100 }}
               animate={{ y: 0 }}
               exit={{ y: 300 }}
+              id="lincx-mobile-filter"
             >
               <ModalWhiteBar />
               <ModalHeader>
