@@ -5,6 +5,8 @@ import { waitFor } from '../../utils/helpers'
 import { PrivateStudentLoanSearchProvider } from './state/context'
 
 waitFor('#search-schools-control', () => {
+  const scriptDataSet = document.getElementById('search-schools-control').dataset;
+  window.searchButtonText = scriptDataSet.searchButtonText || "Find Loans"
   ReactDOM.render(
     <PrivateStudentLoanSearchProvider>
       <SearchSchools />

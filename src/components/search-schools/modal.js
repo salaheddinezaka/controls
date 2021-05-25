@@ -50,7 +50,7 @@ const SearchSchoolsModal = () => {
                   dispatch({ type: SearchTypes.CLOSE_INITIAL_MODAL })
               }}
             >
-              FIND LOANS
+              {window.searchButtonText}
             </SubmitSearchButton>
           </ModalFormContainer>
         </ModalContent>
