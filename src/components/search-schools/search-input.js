@@ -67,7 +67,7 @@ const SearchInput = ({ shouldSubmitOnSelect = false }) => {
       />
       {searchValue && <ClearIcon onClick={handleClearClick}>x</ClearIcon>}
       {showSuggestions && (
-        <SuggestionsList>
+        <SuggestionsList id="lincx__suggestion--list">
           {collegesSuggestions.map(({ item }) => (
             <SuggestionItem
               key={item.opeid}
