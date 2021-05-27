@@ -15,7 +15,7 @@ export const LoanAmountValues = [
   { value: '100', text: 'Up to 100K' },
   { value: '250', text: '100K - 250K' },
   { value: '400', text: '250K - 400K' },
-  { value: 'over400', text: '400K and Up' }
+  { value: '400up', text: '400K and Up' }
 ]
 
 export const StatesValues = [

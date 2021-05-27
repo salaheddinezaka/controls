@@ -52,7 +52,7 @@ const SearchInput = ({ shouldSubmitOnSelect = false }) => {
   const handleClearClick = () => {
     dispatch(handleClearSearch())
     if (window.renderAdFeed != undefined) {
-      window.renderAdFeed({ 'data-school': 'default' })
+      window.renderAdFeed({ 'data-school': window.lincxDefaultValue })
     }
   }
 
