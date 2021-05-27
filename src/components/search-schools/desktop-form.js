@@ -1,14 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
+import { usePSLContext } from '../../controls/student-loan-v2/state/context'
 import { below } from '../../utils/media-query'
+import { SubmitSearchButton } from '../styled'
 import SearchInput from './search-input'
 
 const DesktopForm = () => {
+  const {
+    state: { selectedCollege }
+  } = usePSLContext()
   return (
     <FormContainer>
-      <ImageStyled src="https://cdn.zeplin.io/5fb6b6e30914549574b7eeee/assets/9591DAD2-597C-46C4-8824-745D5F1E7B82.png" />
+      <ImageStyled src={window.lincxMainIcon} />
       <SearchTitle>Which college will you be attending?</SearchTitle>
-      <SearchInput shouldSubmitOnSelect={true} />
+      <SearchInput shouldSubmitOnSelect={!window.lincxDesktopCTA} />
+      {window.lincxDesktopCTA && (
+        <SubmitSearchButton
+          onClick={() => {
+            if (window.renderAdFeed != undefined) {
+              window.renderAdFeed({ 'data-school': selectedCollege.opeid })
+            }
+          }}
+        >
+          {window.searchButtonText}
+        </SubmitSearchButton>
+      )}
     </FormContainer>
   )
 }

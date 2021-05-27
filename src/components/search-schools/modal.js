@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import SearchInput from './search-input'
 import { usePSLContext } from '../../controls/student-loan-v2/state/context'
 import { SearchTypes } from '../../controls/student-loan-v2/state/search-reducer'
-import { ModalBackground } from '../styled'
+import { ModalBackground, SubmitSearchButton } from '../styled'
 import { motion } from 'framer-motion'
 import { above, below } from '../../utils/media-query'
 
@@ -135,26 +135,5 @@ const ModalFormContainer = styled.div`
     flex-direction: row;
   `}
 `
-const SubmitSearchButton = styled.button`
-  font-family: var(--lincxContentFont);
-  font-size: 14px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: -0.23px;
-  text-align: center;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  padding: 19px 46px;
-  background-color: var(--lincxPrimaryColor);
-  cursor: pointer;
-  margin-top: 16px;
-  ${above.med`
-    font-size: 24px;
-    margin-top: 0;
-    margin-left: 16px;
-  `}
-`
+
 export default SearchSchoolsModal
