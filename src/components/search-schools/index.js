@@ -19,7 +19,7 @@ const SearchSchools = () => {
     // if (showModal && width > 0 && width <= 768) {
     //   dispatch({ type: SearchTypes.CLOSE_INITIAL_MODAL })
     // }
-    
+
     // // Show the modal if the width is desktop and the modal isn't showing or never closed
     // if (shouldShowInitialModal && !showModal && width > 768) {
     //   dispatch({ type: SearchTypes.START_INITIAL_MODAL })
@@ -36,9 +36,11 @@ const SearchSchools = () => {
   }, [width])
   return (
     <>
-      <AnimatePresence exitBeforeEnter>
-        {showModal && <SearchSchoolsModal />}
-      </AnimatePresence>
+      {window.lincxShowModal && (
+        <AnimatePresence exitBeforeEnter>
+          {showModal && <SearchSchoolsModal />}
+        </AnimatePresence>
+      )}
       {showMobileFilters ? <MobileFilters /> : null}
       <DesktopForm />
     </>
