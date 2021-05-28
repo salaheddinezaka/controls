@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { insertParam } from '../../controls/student-loan-v2/helpers'
 import { usePSLContext } from '../../controls/student-loan-v2/state/context'
 import { below } from '../../utils/media-query'
 import { SubmitSearchButton } from '../styled'
@@ -17,8 +18,13 @@ const DesktopForm = () => {
       {window.lincxDesktopCTA && (
         <SubmitSearchButton
           onClick={() => {
-            if (window.renderAdFeed != undefined) {
-              window.renderAdFeed({ 'data-school': selectedCollege.opeid })
+            if (selectedCollege) {
+              if (window.renderAdFeed != undefined) {
+                window.renderAdFeed({ 'data-school': selectedCollege.opeid })
+              }
+              if (window.lincxSecondPage) {
+                insertParam('lincx-school', selectedCollege.opeid)
+              }
             }
           }}
         >

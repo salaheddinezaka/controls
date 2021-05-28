@@ -7,6 +7,7 @@ export function setupPLSControls() {
   setupDefaultValueForLincxZone(containerDataSet)
   setupMainImage(containerDataSet)
   setupDesktopCTASearch(containerDataSet)
+  setupSecondPage(containerDataSet)
 }
 
 function setupCTAText(dataset) {
