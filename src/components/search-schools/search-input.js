@@ -51,7 +51,7 @@ const SearchInput = ({ shouldSubmitOnSelect = false }) => {
 
   const handleClearClick = () => {
     dispatch(handleClearSearch())
-    if (window.renderAdFeed != undefined) {
+    if (window.renderAdFeed != undefined && window.lincxDefaultValue !== "none") {
       window.renderAdFeed({ 'data-school': window.lincxDefaultValue })
     }
   }
