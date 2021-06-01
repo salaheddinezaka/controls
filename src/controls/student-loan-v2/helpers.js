@@ -1,9 +1,3 @@
-export function moveToNextPage(nextPageUrl) {
-  const urlParams = new URLSearchParams(window.location.search)
-  const test = urlParams.get('test')
-  console.log(test)
-}
-
 export function insertParam(key, value) {
   key = encodeURIComponent(key)
   value = encodeURIComponent(value)
