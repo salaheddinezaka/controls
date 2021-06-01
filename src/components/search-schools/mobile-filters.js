@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { insertParam } from '../../controls/student-loan-v2/helpers'
 import { usePSLContext } from '../../controls/student-loan-v2/state/context'
 import RefineResultsButton from '../refine-results-button'
 import { ModalBackground } from '../styled'
@@ -16,6 +17,9 @@ const MobileFilters = () => {
       window.renderAdFeed({ 'data-school': selectedCollege.opeid })
     }
     handleCloseModal()
+    if (window.lincxSecondPage) {
+      insertParam('lincx-school', selectedCollege.opeid)
+    }
     document.body.scrollTop = 0
     document.documentElement.scrollTop = 0
   }
@@ -54,9 +58,7 @@ const MobileFilters = () => {
               </ModalHeader>
               <ModalBody>
                 <SearchInput />
-                <SubmitButton
-                  onClick={handleSearchSubmit}
-                >
+                <SubmitButton onClick={handleSearchSubmit}>
                   {window.searchButtonText}
                 </SubmitButton>
               </ModalBody>
