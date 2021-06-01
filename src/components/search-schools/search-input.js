@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import { getSelectedSchool } from '../../controls/student-loan-v2/helpers'
 import {
   handleClearSearch,
   handleSearchValueChanged,
@@ -42,6 +43,13 @@ const SearchInput = ({ shouldSubmitOnSelect = false }) => {
     minMatchCharLength: 2
   })
 
+  useEffect(() => {
+    const selectedSchool = getSelectedSchool()
+    if (selectedSchool) {
+      dispatch(handleSelectCollege(selectedSchool))
+    }
+  }, [])
+
   const handleSubmitOnSelect = (item) => {
     dispatch(handleSelectCollege(item))
     if (shouldSubmitOnSelect && window.renderAdFeed != undefined) {
@@ -51,7 +59,10 @@ const SearchInput = ({ shouldSubmitOnSelect = false }) => {
 
   const handleClearClick = () => {
     dispatch(handleClearSearch())
-    if (window.renderAdFeed != undefined && window.lincxDefaultValue !== "none") {
+    if (
+      window.renderAdFeed != undefined &&
+      window.lincxDefaultValue !== 'none'
+    ) {
       window.renderAdFeed({ 'data-school': window.lincxDefaultValue })
     }
   }

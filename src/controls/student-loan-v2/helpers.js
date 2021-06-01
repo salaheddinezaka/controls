@@ -1,3 +1,5 @@
+import colleges from '../../utils/schools.json'
+
 export function insertParam(key, value) {
   key = encodeURIComponent(key)
   value = encodeURIComponent(value)
@@ -21,4 +23,11 @@ export function insertParam(key, value) {
   let params = kvp.join('&')
   // reload page with new params
   document.location = `${window.lincxSecondPage}?${params}`
+}
+
+export function getSelectedSchool() {
+  const urlParams = new URLSearchParams(window.location.search)
+  const selectedSchool = urlParams.get('lincx-school')
+  if (!selectedSchool) return false
+  return colleges.find((element) => element.opeid === selectedSchool)
 }
