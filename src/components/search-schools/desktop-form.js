@@ -2,8 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { insertParam } from '../../controls/student-loan-v2/helpers'
 import { usePSLContext } from '../../controls/student-loan-v2/state/context'
-import { below } from '../../utils/media-query'
-import { SubmitSearchButton } from '../styled'
+import { above, below } from '../../utils/media-query'
 import SearchInput from './search-input'
 
 const DesktopForm = () => {
@@ -68,6 +67,27 @@ const SearchTitle = styled.div`
     width: 203px;
     line-height: 1.4;
   `}
+`
+
+const SubmitSearchButton = styled.button`
+  font-family: var(--lincxContentFont);
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.23px;
+  text-align: center;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 19px 46px;
+  background-color: var(--lincxPrimaryColor);
+  cursor: pointer;
+  margin-left: 16px;
+  ${above.med`
+    font-size: 24px;
+`}
 `
 
 export default DesktopForm
