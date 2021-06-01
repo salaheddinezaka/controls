@@ -15,7 +15,7 @@ const DesktopForm = () => {
       <SearchTitle>Which college will you be attending?</SearchTitle>
       <SearchInput shouldSubmitOnSelect={!window.lincxDesktopCTA} />
       {window.lincxDesktopCTA && (
-        <SubmitSearchButton
+        <SubmitSearchButton id="desktop-search-button"
           onClick={() => {
             if (selectedCollege) {
               if (window.renderAdFeed != undefined) {
