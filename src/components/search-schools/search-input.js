@@ -109,7 +109,7 @@ const SearchInputContainer = styled.div`
   flex: 1;
   ${(props) =>
     props.isMobile &&
-    below.small`
+    below.med`
     width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -178,7 +178,7 @@ const SuggestionsList = styled.ul`
   `}
   ${(props) =>
     props.isMobile &&
-    below.small`
+    below.med`
       top: 102%;
       bottom: auto;
   `}

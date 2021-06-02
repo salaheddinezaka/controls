@@ -53,7 +53,7 @@ const FormContainer = styled.div`
   margin-bottom: 16px;
   ${(props) =>
     props.isMobile
-      ? below.small`
+      ? below.med`
     flex-direction: column;
     padding: 10px 25px 10px;
   `
@@ -67,7 +67,7 @@ const ImageStyled = styled.img`
   object-fit: contain;
   ${(props) =>
     props.isMobile &&
-    below.small`
+    below.med`
     display: none;
   `}
 `
@@ -87,7 +87,7 @@ const SearchTitle = styled.div`
   `}
   ${(props) =>
     props.isMobile &&
-    below.small`
+    below.med`
     width: 100%;
     font-size: 18px;
     text-align: center;
@@ -115,7 +115,7 @@ const SubmitSearchButton = styled.button`
 `}
   ${(props) =>
     props.isMobile &&
-    below.small`
+    below.med`
       font-family: var(--lincxContentFont);
       font-size: 12px;
       font-weight: 400;
@@ -132,7 +132,8 @@ const SubmitSearchButton = styled.button`
       justify-content: center;
       border-radius: 8px;
       border: 2px solid var(--lincxPrimaryColor);
-      min-width: 109px;
+      width: 100%;
+      margin-left: 0px;
   `}
 `
 

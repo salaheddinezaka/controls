@@ -37,7 +37,7 @@ const StyledButton = styled.button`
   width: 70%;
   ${(props) =>
     props.isMobile &&
-    below.small`
+    below.med`
     display: none;
   `}
   svg {
