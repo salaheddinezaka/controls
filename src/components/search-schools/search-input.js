@@ -131,7 +131,7 @@ const SearchInputContainer = styled.div`
     padding: 0 10px;
   }
   input {
-    padding: 20px 20px;
+    padding: 20px 30px 20px 20px;
     opacity: 0.8;
     font-family: var(--lincxContentFont);
     font-size: 16px;
@@ -152,7 +152,7 @@ const SearchInputContainer = styled.div`
 
 const ClearIcon = styled.span`
   position: absolute;
-  right: 20px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
