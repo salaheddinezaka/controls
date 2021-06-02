@@ -158,6 +158,7 @@ const ClearIcon = styled.span`
   cursor: pointer;
   opacity: 0.5;
   color: #141c1f;
+  padding: 10px;
 `
 const SuggestionsList = styled.ul`
   position: absolute;
