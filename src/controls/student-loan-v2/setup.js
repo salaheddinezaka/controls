@@ -8,6 +8,7 @@ export function setupPLSControls() {
   setupMainImage(containerDataSet)
   setupDesktopCTASearch(containerDataSet)
   setupSecondPage(containerDataSet)
+  setupShowForm(containerDataSet)
 }
 
 function setupCTAText(dataset) {
@@ -45,4 +46,8 @@ function setupDesktopCTASearch(dataset) {
 
 function setupSecondPage(dataset) {
   window.lincxSecondPage = dataset.secondPage || false
+}
+
+function setupShowForm(dataset) {
+  window.lincxShowFormOnMobile = dataset.showForm || false
 }

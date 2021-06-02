@@ -68,7 +68,7 @@ const SearchInput = ({ shouldSubmitOnSelect = false }) => {
   }
 
   return (
-    <SearchInputContainer id="lincx-search-input">
+    <SearchInputContainer id="lincx-search-input" isMobile={window.lincxShowFormOnMobile}>
       <label htmlFor="search__input">College</label>
       <input
         type="text"
@@ -78,7 +78,7 @@ const SearchInput = ({ shouldSubmitOnSelect = false }) => {
       />
       {searchValue && <ClearIcon onClick={handleClearClick}>x</ClearIcon>}
       {showSuggestions && (
-        <SuggestionsList id="lincx__suggestion--list">
+        <SuggestionsList id="lincx__suggestion--list" isMobile={window.lincxShowFormOnMobile}>
           {collegesSuggestions.map(({ item }) => (
             <SuggestionItem
               key={item.opeid}
@@ -98,6 +98,13 @@ const SearchInputContainer = styled.div`
   border: solid 1px #979797;
   border-radius: 4px;
   flex: 1;
+  ${(props) =>
+    props.isMobile &&
+    below.small`
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  `}
   label {
     font-family: var(--lincxContentFont);
     font-size: 18px;
@@ -159,6 +166,12 @@ const SuggestionsList = styled.ul`
     top: 102%;
     max-height: 224px;
     bottom: auto;
+  `}
+  ${(props) =>
+    props.isMobile &&
+    below.small`
+      top: 102%;
+      bottom: auto;
   `}
 `
 const SuggestionItemStyle = styled.li`

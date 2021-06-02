@@ -10,12 +10,19 @@ const DesktopForm = () => {
     state: { selectedCollege }
   } = usePSLContext()
   return (
-    <FormContainer>
-      <ImageStyled src={window.lincxMainIcon} />
-      <SearchTitle>Which college will you be attending?</SearchTitle>
+    <FormContainer isMobile={window.lincxShowFormOnMobile}>
+      <ImageStyled
+        src={window.lincxMainIcon}
+        isMobile={window.lincxShowFormOnMobile}
+      />
+      <SearchTitle isMobile={window.lincxShowFormOnMobile}>
+        Which college will you be attending?
+      </SearchTitle>
       <SearchInput shouldSubmitOnSelect={!window.lincxDesktopCTA} />
       {window.lincxDesktopCTA && (
-        <SubmitSearchButton id="desktop-search-button"
+        <SubmitSearchButton
+          isMobile={window.lincxShowFormOnMobile}
+          id="desktop-search-button"
           onClick={() => {
             if (selectedCollege) {
               if (window.renderAdFeed != undefined) {
@@ -44,7 +51,13 @@ const FormContainer = styled.div`
   justify-content: space-between;
   z-index: 9999;
   margin-bottom: 16px;
-  ${below.small`
+  ${(props) =>
+    props.isMobile
+      ? below.small`
+    flex-direction: column;
+    padding: 10px 25px 10px;
+  `
+      : below.small`
     display: none;
   `}
 `
@@ -52,6 +65,11 @@ const FormContainer = styled.div`
 const ImageStyled = styled.img`
   height: 58px;
   object-fit: contain;
+  ${(props) =>
+    props.isMobile &&
+    below.small`
+    display: none;
+  `}
 `
 const SearchTitle = styled.div`
   font-family: var(--lincxContentFont);
@@ -66,6 +84,13 @@ const SearchTitle = styled.div`
   ${below.med`
     width: 203px;
     line-height: 1.4;
+  `}
+  ${(props) =>
+    props.isMobile &&
+    below.small`
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
   `}
 `
 
@@ -88,6 +113,27 @@ const SubmitSearchButton = styled.button`
   ${above.med`
     font-size: 24px;
 `}
+  ${(props) =>
+    props.isMobile &&
+    below.small`
+      font-family: var(--lincxContentFont);
+      font-size: 12px;
+      font-weight: 400;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 2;
+      letter-spacing: -0.11px;
+      text-align: center;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 7px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      border: 2px solid var(--lincxPrimaryColor);
+      min-width: 109px;
+  `}
 `
 
 export default DesktopForm

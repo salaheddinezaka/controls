@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import { below } from '../utils/media-query'
 
 const RefineResultsButton = ({ onClick }) => {
   return (
-    <StyledButton onClick={onClick}>
+    <StyledButton onClick={onClick} isMobile={window.lincxShowFormOnMobile}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
@@ -34,6 +35,11 @@ const StyledButton = styled.button`
   cursor: pointer;
   outline: none;
   width: 70%;
+  ${(props) =>
+    props.isMobile &&
+    below.small`
+    display: none;
+  `}
   svg {
     height: 14px;
     margin-right: 10px;
